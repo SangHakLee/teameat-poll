@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>회식투표 - 회식 일정 투표 서비스</title>
+  <meta name="description" content="구글 시트로 회식 투표 만들기 지겹지 않으셨나요? 회식에 특화된 투표 서비스로 간편하게 투표를 만들어보세요.">
+  <meta name="keywords" content="회식투표, 회식일정, 투표, 회사회식, 팀회식, 일정조율, 회식, 직장인, 팀빌딩">
+  <meta name="author" content="SangHakLee">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://poll.yessir.dev/about.html">
+  <meta name="theme-color" content="#24752c">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="회식투표 - 회식 일정 투표 서비스">
+  <meta property="og:description" content="구글 시트로 회식 투표 만들기 지겹지 않으셨나요? 회식에 특화된 투표 서비스입니다.">
+  <meta property="og:url" content="https://poll.yessir.dev/about.html">
+  <meta property="og:site_name" content="회식투표">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="회식투표 - 회식 일정 투표 서비스">
+  <meta name="twitter:description" content="구글 시트로 회식 투표 만들기 지겹지 않으셨나요?">
+
+  <!-- JSON-LD 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "회식투표",
+    "description": "구글 시트로 회식 투표 만들기 지겹지 않으셨나요? 회식에 특화된 투표 서비스입니다.",
+    "url": "https://poll.yessir.dev",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "SangHakLee",
+      "url": "https://github.com/SangHakLee"
+    }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL0YCJV5G8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CL0YCJV5G8');
+  </script>
+
+  <!-- Fonts -->
+  <style>
+    @font-face {
+      font-family: 'GabiaDunn';
+      src: url('./fonts/GabiaDunn.otf') format('opentype'),
+           url('./fonts/GabiaDunn.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #24752c;
+      --primary-light: #2d8f37;
+      --primary-dark: #1a5a21;
+      --secondary: #2b9eb3;
+      --secondary-light: #3eb5c9;
+      --destructive: #be1e2b;
+      --background: #f7f7f6;
+      --foreground: #1f3d21;
+      --muted: #eaebe9;
+      --border: #dfe0de;
+      --card: #ffffff;
+      --radius: 1rem;
+      --shadow-warm: 0 1px 2px rgba(36,37,32,0.04), 0 4px 16px rgba(36,37,32,0.06);
+      --shadow-float: 0 4px 6px -1px rgba(31,61,33,0.08), 0 2px 4px -2px rgba(31,61,33,0.04);
+    }
+
+    html {
+      font-size: 120%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'GabiaDunn', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-warm);
+      padding: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      font-family: inherit;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-float);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(180deg, #e8f5e9 0%, var(--background) 100%);
+      text-align: center;
+      padding: 5rem 0 4rem;
+    }
+
+    .hero-emoji {
+      font-size: 2.5rem;
+    }
+
+    .hero h1 {
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--foreground);
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--foreground);
+      opacity: 0.6;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    @media (min-width: 640px) {
+      .hero-cta {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    /* Problem Section */
+    .problem {
+      background: var(--card);
+    }
+
+    .problem h2 {
+      color: var(--destructive);
+    }
+
+    .problem-list {
+      list-style: none;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .problem-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+    }
+
+    .problem-list li:last-child {
+      border-bottom: none;
+    }
+
+    .problem-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    /* Solution Section */
+    .solution {
+      text-align: center;
+    }
+
+    .solution h2 {
+      color: var(--primary);
+    }
+
+    .solution-highlight {
+      display: inline-block;
+      background: linear-gradient(180deg, transparent 60%, rgba(36, 117, 44, 0.2) 60%);
+      padding: 0 0.25rem;
+    }
+
+    .solution-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 2rem auto 0;
+    }
+
+    .solution-point {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .solution-point-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+
+    /* Features Section */
+    .features {
+      background: var(--card);
+    }
+
+    .features h2 {
+      color: var(--primary);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .feature-card {
+      padding: 1.25rem;
+      background: var(--background);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-float);
+    }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card h3 {
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--foreground);
+      opacity: 0.8;
+      margin-bottom: 0;
+    }
+
+    .beta-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: var(--secondary);
+      color: white;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-left: 0.25rem;
+    }
+
+    /* How It Works */
+    .how-it-works h2 {
+      color: var(--primary);
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .steps {
+        flex-direction: row;
+        max-width: 100%;
+        gap: 1rem;
+      }
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .step p {
+      font-size: 0.875rem;
+      color: var(--foreground);
+      opacity: 0.7;
+      margin-bottom: 0;
+    }
+
+    .step-arrow {
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .step-arrow {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: var(--primary);
+        opacity: 0.5;
+      }
+    }
+
+    /* Story Section */
+    .story {
+      background: linear-gradient(180deg, var(--background) 0%, #e8f5e9 100%);
+    }
+
+    .story h2 {
+      color: var(--primary);
+    }
+
+    .story-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--primary);
+      padding: 2rem;
+      box-shadow: var(--shadow-warm);
+    }
+
+    .story-quote {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--foreground);
+    }
+
+    .story-quote p {
+      margin-bottom: 1rem;
+    }
+
+    .story-quote p:last-child {
+      margin-bottom: 0;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .story-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .story-author-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .story-author-info {
+      text-align: left;
+    }
+
+    .story-author-name {
+      font-weight: 600;
+      color: var(--foreground);
+    }
+
+    .story-author-title {
+      font-size: 0.875rem;
+      color: var(--foreground);
+      opacity: 0.7;
+    }
+
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      background: var(--primary);
+      color: white;
+    }
+
+    .cta h2 {
+      color: white;
+    }
+
+    .cta p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .cta .btn-primary {
+      background: var(--secondary);
+      color: white;
+      font-size: 1.25rem;
+      padding: 1rem 2.5rem;
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--foreground);
+      color: white;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-logo span {
+      font-size: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.8);
+    }
+
+    @media (min-width: 640px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      html {
+        font-size: 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .hero {
+        padding: 3rem 0 2.5rem;
+      }
+
+      .hero-emoji {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1><span class="hero-emoji">🍻</span> 회식투표</h1>
+      <p class="hero-subtitle">회식 일정 투표 서비스</p>
+      <p class="hero-tagline">구글 시트 대신, 더 간편하게</p>
+      <div class="hero-cta">
+        <a href="https://poll.yessir.dev" class="btn btn-primary">투표 만들기</a>
+        <a href="#features" class="btn btn-outline">기능 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="problem">
+    <div class="container">
+      <h2>아직도 구글 시트로 만드시나요?</h2>
+      <ul class="problem-list">
+        <li>
+          <span class="problem-icon">📊</span>
+          <span>시트 템플릿 만들기</span>
+        </li>
+        <li>
+          <span class="problem-icon">📅</span>
+          <span>날짜마다 요일 확인해서 입력</span>
+        </li>
+        <li>
+          <span class="problem-icon">🔢</span>
+          <span>COUNTIF 수식 넣기</span>
+        </li>
+        <li>
+          <span class="problem-icon">⬇️</span>
+          <span>O/X 드롭다운 서식 설정</span>
+        </li>
+        <li>
+          <span class="problem-icon">🎌</span>
+          <span>공휴일인지 확인</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="solution">
+    <div class="container">
+      <h2><span class="solution-highlight">회식</span>에 맞게 만들었습니다</h2>
+      <p>일정 투표 서비스는 많지만, 회식용으로 쓰기엔 뭔가 안 맞았습니다.</p>
+      <div class="solution-points">
+        <div class="solution-point">
+          <span class="solution-point-icon">⚡</span>
+          <span>제목, 날짜, 참여자만 입력하면 끝</span>
+        </div>
+        <div class="solution-point">
+          <span class="solution-point-icon">🇰🇷</span>
+          <span>공휴일 자동 표시 및 제외</span>
+        </div>
+        <div class="solution-point">
+          <span class="solution-point-icon">👁️</span>
+          <span>눈치 투표 방지용 블라인드 모드</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2>기능</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>달력 기반 선택</h3>
+          <p>드래그로 여러 날짜 선택</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎌</div>
+          <h3>공휴일 자동 제외</h3>
+          <p>대한민국 공휴일 표시 및 제외 옵션</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👁️</div>
+          <h3>블라인드 투표</h3>
+          <p>전원 투표 전까지 결과 비공개</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>5자리 공유 코드</h3>
+          <p>aBc12 형태로 간편 공유</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>로그인 선택</h3>
+          <p>로그인하면 제목, 설명, 날짜, 참여자 모두 수정 가능</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏰</div>
+          <h3>마감일 설정</h3>
+          <p>마감 후 투표 불가, 일정 기간 후 자동 삭제</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI 요약 <span class="beta-badge">Beta</span></h3>
+          <p>투표 결과 기반 회식 공지 생성</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>사용 방법</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-icon">✍️</div>
+          <h3>만들기</h3>
+          <p>제목, 날짜, 참여자 입력</p>
+        </div>
+        <span class="step-arrow">→</span>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-icon">🔗</div>
+          <h3>공유</h3>
+          <p>코드 또는 링크 전달</p>
+        </div>
+        <span class="step-arrow">→</span>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-icon">📊</div>
+          <h3>결과</h3>
+          <p>최다 득표 날짜 확인</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story">
+    <div class="container">
+      <h2>만든 이유</h2>
+      <div class="story-card">
+        <blockquote class="story-quote">
+          <p>회사 생활 10년 차인데 아직도 회식 투표를 만들고 있습니다.</p>
+          <p>구글 시트에 이름 넣고, 날짜 적고, O/X 드롭다운 만들고, COUNTIF 함수 지정하고... 제일 귀찮은 건 며칠이 무슨 요일인지 일일이 확인하는 거였어요.</p>
+          <p>그래서 그냥 만들었습니다.</p>
+        </blockquote>
+        <div class="story-author">
+          <img src="https://github.com/SangHakLee.png" alt="SangHakLee" class="story-author-avatar">
+          <div class="story-author-info">
+            <div class="story-author-name">SangHakLee</div>
+            <div class="story-author-title">개발자</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>회식 일정, 편하게 잡으세요</h2>
+      <p>회원가입 없이 바로 사용할 수 있습니다</p>
+      <a href="https://poll.yessir.dev" class="btn btn-primary">투표 만들기</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span>🍻</span> 회식투표
+        </div>
+        <div class="footer-links">
+          <a href="https://poll.yessir.dev">서비스 이용하기</a>
+          <a href="https://github.com/SangHakLee" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 회식투표</span>
+          <span>Made by <a href="https://github.com/SangHakLee" target="_blank" rel="noopener noreferrer">SangHakLee</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
